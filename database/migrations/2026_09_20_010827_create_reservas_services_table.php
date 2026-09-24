@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('reservas_services', function (Blueprint $table) {
             $table->id();
+                    $table->foreignId('reserva_id')->constrained('reservas')->onDelete('cascade');
+        $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
+        $table->integer('cantidad');
             $table->timestamps();
         });
     }

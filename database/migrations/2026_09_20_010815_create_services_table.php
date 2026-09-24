@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+                    $table->string('nombre');
+        $table->time('hora_inicio');
+        $table->time('hora_final');
             $table->timestamps();
         });
     }

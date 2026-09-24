@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('habitations', function (Blueprint $table) {
             $table->id();
+                    $table->integer('capacidad');
+        $table->integer('numero');
+        $table->string('tipo');
             $table->timestamps();
         });
     }

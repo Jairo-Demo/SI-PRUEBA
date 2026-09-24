@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Habitation extends Model
 {
-    //
+   protected $fillable = [
+    'capacidad',
+    'numero',
+    'tipo',
+    ];
 }
