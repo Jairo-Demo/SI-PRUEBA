@@ -18,6 +18,21 @@ class AuthController extends Controller
         return view('auth.dashboard');
     }
 
+    public function logout(Request $request)
+    {
+        foreach (['admin', 'cliente', 'web'] as $guard) {
+            if (auth()->guard($guard)->check()) {
+                auth()->guard($guard)->logout();
+                break;
+            }
+        }
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('LoginIndex');
+    }
+
     public function login(Request $request)
     {
         $validated = $request->validate([
